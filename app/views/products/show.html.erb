@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%#= image_tag @product.image ? 'active' : '' %>">
+  <%= image_tag @product.image , style: 'width: 300px; height: 300px',alt: '' %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku %>
+</p>
+
+<p>
+  <strong>Stock number:</strong>
+  <%= @product.stock_id %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @product.region.title %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
