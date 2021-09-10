@@ -1,4 +1,4 @@
-class RegionsController < InheritedResources::Base
+class Admin::RegionsController < AdminController
 
   private
 
