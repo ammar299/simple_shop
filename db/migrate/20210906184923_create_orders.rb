@@ -4,6 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :customer_name
       t.text :shipping_address
       t.text :summary
+      t.references :user
 
       t.timestamps
     end
