@@ -1,9 +1,11 @@
-class Admin::RegionsController < AdminController
+module Admin
+  class Admin::RegionsController < AdminController
 
-  private
+    private
 
-    def region_params
-      params.require(:region).permit(:title, :country_details, :currency_details, :tax_details)
-    end
+      def region_params
+        params.require(:region).permit(:title, :country_details, :currency_details, :tax_details)
+      end
 
+  end
 end

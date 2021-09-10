@@ -1,9 +1,15 @@
-class StoresController < InheritedResources::Base
+module Admin
+  class StoresController < AdminController
 
-  private
+    def index
 
-    def store_params
-      params.require(:store).permit(:name)
     end
 
+    private
+
+      def store_params
+        params.require(:store).permit(:name)
+      end
+
+  end
 end
