@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   resources :stores
   post 'user_token' => 'user_token#create'
   resources :orders
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  # ActiveAdmin.routes(self)
   devise_for :users
 
   namespace :admin do
