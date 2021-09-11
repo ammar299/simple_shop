@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
-    resources :regions
+    resources :regions, except: %i[index show]
     resources :stores
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
