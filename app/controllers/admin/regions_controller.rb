@@ -2,32 +2,37 @@ module Admin
   class Admin::RegionsController < AdminController
     before_action :set_region, only: %i[edit update destroy]
 
+    def index
+      @regions = Region.all
+      render json: @regions
+    end
+
     def create
       @region = Region.new region_params
 
       if @region.save
-        flash['success'] = 'Region has been added successfully!'
+        render json: @region
 
       else
-        flash['error'] = @region.errors.full_messages.join("\n")
+        render json: @region.errors.full_messages.join("\n")
       end
     end
 
     def update
       if @region.update region_params
-        flash['success'] = 'Region has been updated successfully!'
+        render json: @region
 
       else
-        flash['error'] = @region.errors.full_messages.join("\n")
+        render json: @region.errors.full_messages.join("\n")
       end
     end
 
     def destroy
       if @region.destroy
-        flash['success'] = 'Region has been deleted successfully!'
+        render json: 'Region destroy successfully!'
 
       else
-        flash['error'] = 'Unable to delete region!'
+        render json: 'Unable to delete region!'
       end
     end
 

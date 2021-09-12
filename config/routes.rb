@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :products
-    resources :regions, except: %i[index show]
-    resources :stores
+    resources :products, except: %i[show]
+    resources :regions, except: %i[show]
+    resources :stores, except: %i[show]
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
