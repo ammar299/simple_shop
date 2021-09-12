@@ -14,7 +14,7 @@ module Admin
         render json: @product
 
       else
-        render json: @product.errors.full_messages.join("\n")
+        render json: @product.errors.full_messages.join("\n"), status: 422
       end
     end
 
@@ -23,17 +23,16 @@ module Admin
         render json: @product
 
       else
-        render json: @product.errors.full_messages.join("\n")
+        render json: @product.errors.full_messages.join("\n"), status: 422
       end
     end
 
     def destroy
-      byebug
       if @product.destroy
         render json: 'product destroy successfully!'
 
       else
-        render json: 'Unable to delete product!'
+        render json: 'Unable to delete product!', status: 422
       end
     end
 

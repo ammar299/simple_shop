@@ -14,7 +14,7 @@ module Admin
         render json: @region
 
       else
-        render json: @region.errors.full_messages.join("\n")
+        render json: @region.errors.full_messages.join("\n"), status: 422
       end
     end
 
@@ -23,7 +23,7 @@ module Admin
         render json: @region
 
       else
-        render json: @region.errors.full_messages.join("\n")
+        render json: @region.errors.full_messages.join("\n"), status: 422
       end
     end
 
@@ -32,7 +32,7 @@ module Admin
         render json: 'Region destroy successfully!'
 
       else
-        render json: 'Unable to delete region!'
+        render json: 'Unable to delete region!', status: 422
       end
     end
 
