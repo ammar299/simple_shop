@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  root to: "home#index"
   resources :stores
-  post 'user_token' => 'user_token#create'
   resources :orders
-  devise_for :users
 
   namespace :admin do
     resources :products, except: %i[show]
