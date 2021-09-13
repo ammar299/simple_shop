@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     @user.add_role :customer
     token = encode_token({user_id: @user.id})
     render json: {user: @user, token: token, roles: @user.roles.pluck(:name)}
-    end
   end
 
   # LOGGING IN
@@ -32,6 +31,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password)
+    params.permit(:name, :email, :password, :password_confirmation, :format)
   end
 end
