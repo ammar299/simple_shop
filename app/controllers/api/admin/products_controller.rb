@@ -9,7 +9,7 @@ module Api
       end
 
       def create
-        @product = product.new product_params
+        @product = Product.new product_params
 
         if @product.save
           render json: @product

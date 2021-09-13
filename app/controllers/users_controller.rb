@@ -3,13 +3,12 @@ class UsersController < ApplicationController
 
   # REGISTER
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      @user.add_role :customer
-      token = encode_token({user_id: @user.id})
-      render json: {user: @user, token: token, roles: @user.roles.pluck(:name)}
-    else
-      render json: {error: "Invalid email or password"}
+    @user = User.new(user_params)
+    return render json: {error: "Invalid email or password"} unless @user.valid?  
+
+    @user.add_role :customer
+    token = encode_token({user_id: @user.id})
+    render json: {user: @user, token: token, roles: @user.roles.pluck(:name)}
     end
   end
 
